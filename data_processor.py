@@ -56,8 +56,8 @@ class GraphBuilder:
         else:
             raise ValueError("To apply gene similarity weight , gene expression data must be loaded.")    
 
+        
     '''
-
     def calculate_gene_similarity(self, graph):
         if self.GeneExpression_file:
 
@@ -94,7 +94,8 @@ class GraphBuilder:
             if truth_data.loc[i , 'group'] == 'A' and pred_data.loc[i , 'group'] == 'Normal':
                FN_count += 1
         
-        ad_weight = 0.5 + FN_count / total_count
+        #ad_weight = 0.5 + FN_count / total_count
+        ad_weight = 0.8
         
         for edge in self.truth_G.edges():
             u , v = edge

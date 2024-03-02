@@ -3,7 +3,7 @@ import torch
 import ot
 import time
 
-def gaussian_emd(x, y, sigma=1e-5):
+def gaussian_emd(x, y, sigma=1e-3):
     X = np.stack(x)
     Y = np.stack(y)
     
