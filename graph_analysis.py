@@ -10,14 +10,14 @@ def bootstrap_sample(data, num_samples):
     return bootstrap_samples
 
 '''
-def KDE(dist , num_samples , bandwidth = 0.5):
+def KDE(dist , num_samples , bandwidth = 0.1 ):
     kde = KernelDensity(kernel = 'gaussian' , bandwidth = bandwidth)
     kde.fit(dist)
     samples = kde.sample(num_samples)
     return samples
-'''
 
-def KDE(dist , num_samples , bandwidths = np.linspace(0.1 , 1.0 , 30) , random_seed = 2):
+'''
+def KDE(dist , num_samples , bandwidths = np.linspace(0.1 , 1.0 , 30) , random_seed = 42):
     np.random.seed(random_seed)
     kde = KernelDensity(kernel='gaussian')
     params = {'bandwidth': bandwidths}

@@ -56,7 +56,8 @@ class GraphBuilder:
         else:
             raise ValueError("To apply gene similarity weight , gene expression data must be loaded.")    
 
-        
+            
+    
     '''
     def calculate_gene_similarity(self, graph):
         if self.GeneExpression_file:
