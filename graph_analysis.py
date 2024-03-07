@@ -4,11 +4,14 @@ from sklearn.neighbors import KernelDensity
 from sklearn.model_selection import GridSearchCV
 
 
-def bootstrap_sample(data, num_samples):
+def bootstrap_sample(data, num_dist):
     n = len(data)
-    bootstrap_samples = [np.random.choice(data, size=n, replace=True) for _ in range(num_samples)]
+    bootstrap_samples = []
+    for _ in range(num_dist):
+        indices = np.random.randint(n , size = n)
+        sample = [data[i] for i in indices]
+        bootstrap_samples.append(sample)
     return bootstrap_samples
-
 '''
 def KDE(dist , num_samples , bandwidth = 0.1 ):
     kde = KernelDensity(kernel = 'gaussian' , bandwidth = bandwidth)
@@ -92,7 +95,6 @@ def get_edge_attributes(truth_g , pred_g , bandwidth = 0.8 , num_dist = None , a
     
     dist_pred = np.array(dist_pred)
     dist_truth = np.array(dist_truth)
-    
     
     distributions_pred = []
     distributions_truth = []
