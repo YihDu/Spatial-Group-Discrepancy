@@ -44,9 +44,6 @@ def main(coordinate_file_truth ,
           )
 
      graph_truth , graph_pred = graph_builder.process_graph()
-
-     nx.write_gml(graph_truth , "truth_g.gml")
-     nx.write_gml(graph_pred , "pred_g.gml")
      
      graph_building_time = time.time()
      print(f"Graph Building took {graph_building_time - start_time:.2f} seconds.")
