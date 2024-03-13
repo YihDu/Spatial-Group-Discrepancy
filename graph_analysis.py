@@ -3,8 +3,8 @@ import numpy as np
 from sklearn.neighbors import KernelDensity
 from sklearn.model_selection import GridSearchCV
 
-
 def bootstrap_sample(data, num_dist):
+    
     n = len(data)
     bootstrap_samples = []
     for _ in range(num_dist):
@@ -18,8 +18,8 @@ def KDE(dist , num_samples , bandwidth = 0.1 ):
     kde.fit(dist)
     samples = kde.sample(num_samples)
     return samples
-
 '''
+
 def KDE(dist , num_samples , bandwidths = np.linspace(0.1 , 1.0 , 30) , random_seed = 2):
     np.random.seed(random_seed)
     kde = KernelDensity(kernel='gaussian')
@@ -114,8 +114,6 @@ def get_edge_attributes(truth_g , pred_g , bandwidth = 0.8 , num_dist = None , a
     
     return distributions_pred , distributions_truth
 
-
-
 def get_edge_attributes_group(pred_g , truth_g , bandwidth = 0.8 , num_dist = 20 ,apply_gene_similarity = False , apply_AD_weight = False):
     unique_groups = set()
     for _, node_data in truth_g.nodes(data=True):
@@ -135,9 +133,7 @@ def get_edge_attributes_group(pred_g , truth_g , bandwidth = 0.8 , num_dist = 20
         group_u = pred_g.nodes[u]['group']
         group_v = pred_g.nodes[v]['group']
 
-        if edge in pred_g.edges:
-                
-                
+        if edge in pred_g.edges:                
             if group_u != group_v:
                 encoding = np.zeros(len(unique_groups))
             else:

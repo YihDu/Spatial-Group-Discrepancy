@@ -53,7 +53,7 @@ def main(coordinate_file_truth ,
           samples_truth , samples_pred = get_edge_attributes(graph_truth , 
                                                             graph_pred , 
                                                             bandwidth = 0.5 ,
-                                                            num_dist = 10 , 
+                                                            num_dist = 20 , 
                                                             apply_gene_similarity = apply_gene_similarity , 
                                                             apply_AD_weight = apply_AD_weight)
           attribute_end_time = time.time()
@@ -70,7 +70,7 @@ def main(coordinate_file_truth ,
           samples_truth , samples_pred = get_edge_attributes_group(graph_truth , 
                                                             graph_pred , 
                                                             bandwidth = 0.5 ,
-                                                            num_dist = 20 , 
+                                                            num_dist = 30 , 
                                                             apply_gene_similarity = apply_gene_similarity , 
                                                             apply_AD_weight = apply_AD_weight)
           SGD_score_1 =  compute_mmd(samples_truth['A'] , samples_pred['A'] ,kernel = gaussian_emd,is_hist = True)
