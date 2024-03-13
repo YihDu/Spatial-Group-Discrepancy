@@ -9,9 +9,10 @@ def bootstrap_sample(data, num_dist):
     bootstrap_samples = []
     for _ in range(num_dist):
         indices = np.random.randint(n , size = n)
-        sample = [data[i] for i in indices]
+        sample = data[indices , :]
         bootstrap_samples.append(sample)
     return bootstrap_samples
+
 '''
 def KDE(dist , num_samples , bandwidth = 0.1 ):
     kde = KernelDensity(kernel = 'gaussian' , bandwidth = bandwidth)
