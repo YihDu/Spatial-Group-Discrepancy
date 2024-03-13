@@ -2,7 +2,7 @@ import networkx as nx
 import numpy as np
 from sklearn.neighbors import KernelDensity
 from sklearn.model_selection import GridSearchCV
-
+'''
 def bootstrap_sample(data, num_dist):
     
     n = len(data)
@@ -13,7 +13,7 @@ def bootstrap_sample(data, num_dist):
         bootstrap_samples.append(sample)
     return bootstrap_samples
 
-'''
+
 def KDE(dist , num_samples , bandwidth = 0.1 ):
     kde = KernelDensity(kernel = 'gaussian' , bandwidth = bandwidth)
     kde.fit(dist)
@@ -21,7 +21,7 @@ def KDE(dist , num_samples , bandwidth = 0.1 ):
     return samples
 '''
 
-def KDE(dist , num_samples , bandwidths = np.linspace(0.1 , 1.0 , 30) , random_seed = 2):
+def KDE(dist , num_samples , bandwidths = np.linspace(0.1 , 1.0 , 30) , random_seed = 42):
     np.random.seed(random_seed)
     kde = KernelDensity(kernel='gaussian')
     params = {'bandwidth': bandwidths}
@@ -101,17 +101,17 @@ def get_edge_attributes(truth_g , pred_g , bandwidth = 0.8 , num_dist = None , a
     distributions_truth = []
     
     # KDE and sampling
-    '''
+
     for i in range(num_dist):
         distribution_pred = KDE(dist_pred,num_samples)
         distribution_truth = KDE(dist_truth,num_samples)
         distributions_pred.append(distribution_pred)
         distributions_truth.append(distribution_truth)
-    '''
+
     
     # Bootstrap sampling
-    distributions_pred = bootstrap_sample(dist_pred, num_dist)
-    distributions_truth = bootstrap_sample(dist_truth, num_dist)
+    # distributions_pred = bootstrap_sample(dist_pred, num_dist)
+    # distributions_truth = bootstrap_sample(dist_truth, num_dist)
     
     return distributions_pred , distributions_truth
 
