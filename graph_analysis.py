@@ -21,7 +21,7 @@ def KDE(dist , num_samples , bandwidth = 0.1 ):
     return samples
 '''
 
-def KDE(dist , num_samples , bandwidths = np.linspace(0.1 , 1.0 , 30) , random_seed = 42):
+def KDE(dist , num_samples , bandwidths = np.linspace(0.1 , 1.0 , 30) , random_seed = 10):
     np.random.seed(random_seed)
     kde = KernelDensity(kernel='gaussian')
     params = {'bandwidth': bandwidths}
