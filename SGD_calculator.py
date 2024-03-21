@@ -4,6 +4,7 @@ import ot
 import time
 from concurrent.futures import ProcessPoolExecutor
 from GK_emd import *
+import dill as pickle
 
 '''
 def gaussian_emd(x, y, sigma=5e-4):

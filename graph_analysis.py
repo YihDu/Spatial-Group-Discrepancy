@@ -21,7 +21,7 @@ def KDE(dist , num_samples , bandwidth = 0.1 ):
     return samples
 '''
 
-def KDE(dist , num_samples , bandwidths = np.linspace(0.1 , 1.0 , 30) , random_seed = 10):
+def KDE(dist , num_samples , bandwidths = np.linspace(0.1 , 1.0 , 30) , random_seed = 42):
     np.random.seed(random_seed)
     kde = KernelDensity(kernel='gaussian')
     params = {'bandwidth': bandwidths}
@@ -86,13 +86,14 @@ def get_edge_attributes(truth_g , pred_g , bandwidth = 0.8 , num_dist = None , a
                 
                 if apply_gene_similarity:
                     weight = truth_g[u][v]['weight']
-                    weighted_encoding = encoding * weight
+                    encoding = encoding * weight
                 
                 if apply_AD_weight:
                     ad_weight = pred_g[u][v]['ad_weight']
                     encoding = encoding * ad_weight
                   
                 dist_truth.append(encoding)     
+    
     
     dist_pred = np.array(dist_pred)
     dist_truth = np.array(dist_truth)
@@ -142,7 +143,7 @@ def get_edge_attributes_group(pred_g , truth_g , bandwidth = 0.8 , num_dist = 20
             
             if apply_gene_similarity:
                 weight = truth_g[u][v]['weight']
-                weighted_encoding = encoding * weight
+                encoding = encoding * weight
             
             if apply_AD_weight:
                 ad_weight = pred_g[u][v]['ad_weight']
@@ -166,7 +167,7 @@ def get_edge_attributes_group(pred_g , truth_g , bandwidth = 0.8 , num_dist = 20
             
             if apply_gene_similarity:
                 weight = truth_g[u][v]['weight']
-                weighted_encoding = encoding * weight
+                encoding = encoding * weight
             
             if apply_AD_weight:
                 ad_weight = pred_g[u][v]['ad_weight']

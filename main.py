@@ -4,7 +4,7 @@ from graph_analysis import get_edge_attributes , get_edge_attributes_group
 from SGD_calculator import *
 import networkx as nx
 import time
-from GK_emd import *
+from GK_emd import gaussian_emd
 
 
 '''
