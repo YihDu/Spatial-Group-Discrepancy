@@ -21,7 +21,7 @@ def KDE(dist , num_samples , bandwidth = 0.1 ):
     return samples
 '''
 
-def KDE(dist , num_samples , bandwidths = np.linspace(0.1 , 1.0 , 30) , random_seed = 42):
+def KDE(dist , num_samples , bandwidths = np.linspace(0.1 , 1.0 , 30) , random_seed = 2):
     np.random.seed(random_seed)
     kde = KernelDensity(kernel='gaussian')
     params = {'bandwidth': bandwidths}
@@ -113,11 +113,16 @@ def get_edge_attributes(truth_g , pred_g , num_dist = None , apply_gene_similari
     for i in range(num_dist):
         sample_pred = KDE(dist_pred,num_samples)
         sample_truth = KDE(dist_truth,num_samples)
+
         
+        '''      
         # add alignment step
-        sample_pred = align_encoding(n = len(unique_groups) , encoding = sample_pred)
-        sample_truth = align_encoding(n = len(unique_groups) , encoding = sample_truth)
+        for row in sample_pred:
+            encoding = align_encoding(n = len(unique_groups) , encoding = row)
         
+        for row in sample_truth:
+            encoding = align_encoding(n = len(unique_groups) , encoding = row)
+        '''
         distributions_pred.append(sample_pred)
         distributions_truth.append(sample_truth)
 
