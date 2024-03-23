@@ -32,7 +32,15 @@ def KDE(dist , num_samples , bandwidths = np.linspace(0.1 , 1.0 , 30) , random_s
     samples = kde.sample(num_samples)
     return samples
 
-def get_edge_attributes(truth_g , pred_g , bandwidth = 0.8 , num_dist = None , apply_gene_similarity = False , apply_AD_weight = False):
+def align_encoding(n , encoding):
+    vectors = np.vstack([np.eye(n) , np.zeros(n)])
+    distances = np.linalg.norm(vectors - encoding , axis = 1)
+    
+    # update enconding
+    encoding = vectors[np.argmin(distances)]
+    return encoding
+
+def get_edge_attributes(truth_g , pred_g , num_dist = None , apply_gene_similarity = False , apply_AD_weight = False):
     unique_groups = set()
     for _, node_data in truth_g.nodes(data=True):
         unique_groups.add(node_data['group'])
@@ -54,7 +62,6 @@ def get_edge_attributes(truth_g , pred_g , bandwidth = 0.8 , num_dist = None , a
         group_v = pred_g.nodes[v]['group']
 
         if edge in pred_g.edges:
-                
                 
                 if group_u != group_v:
                     encoding = np.zeros(len(unique_groups))
@@ -104,10 +111,15 @@ def get_edge_attributes(truth_g , pred_g , bandwidth = 0.8 , num_dist = None , a
     # KDE and sampling
 
     for i in range(num_dist):
-        distribution_pred = KDE(dist_pred,num_samples)
-        distribution_truth = KDE(dist_truth,num_samples)
-        distributions_pred.append(distribution_pred)
-        distributions_truth.append(distribution_truth)
+        sample_pred = KDE(dist_pred,num_samples)
+        sample_truth = KDE(dist_truth,num_samples)
+        
+        # add alignment step
+        sample_pred = align_encoding(n = len(unique_groups) , encoding = sample_pred)
+        sample_truth = align_encoding(n = len(unique_groups) , encoding = sample_truth)
+        
+        distributions_pred.append(sample_pred)
+        distributions_truth.append(sample_truth)
 
     
     # Bootstrap sampling
