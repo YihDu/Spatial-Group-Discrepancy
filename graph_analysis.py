@@ -21,11 +21,11 @@ def KDE(dist , num_samples , bandwidth = 0.1 ):
     return samples
 '''
 
-def KDE(dist , num_samples , bandwidths = np.linspace(0.1 , 1.0 , 30) , random_seed = 2):
+def KDE(dist , num_samples , bandwidths = np.linspace(0.1 , 1.0 , 30) , random_seed = 42):
     np.random.seed(random_seed)
     kde = KernelDensity(kernel='gaussian')
     params = {'bandwidth': bandwidths}
-    grid = GridSearchCV(kde, params, cv=5)
+    grid = GridSearchCV(kde, params, cv=10)
     grid.fit(dist)
 
     kde = grid.best_estimator_
@@ -40,6 +40,7 @@ def align_encoding(n , encoding):
     encoding = vectors[np.argmin(distances)]
     return encoding
 
+
 def get_edge_attributes(truth_g , pred_g , num_dist = None , apply_gene_similarity = False , apply_AD_weight = False):
     unique_groups = set()
     for _, node_data in truth_g.nodes(data=True):
@@ -47,7 +48,7 @@ def get_edge_attributes(truth_g , pred_g , num_dist = None , apply_gene_similari
     for _, node_data in pred_g.nodes(data=True):
         unique_groups.add(node_data['group'])
         
-    group_to_onehot = {group: tuple(int(i == group) for i in unique_groups) for group in unique_groups} #
+    group_to_onehot = {group: tuple(int(i == group) for i in unique_groups) for group in unique_groups} 
     pred_edges = list(pred_g.edges())
     truth_edges = list(truth_g.edges())
     
@@ -69,7 +70,7 @@ def get_edge_attributes(truth_g , pred_g , num_dist = None , apply_gene_similari
                     encoding = np.array(group_to_onehot[group_u])#
                 
                 if apply_gene_similarity:
-                    weight = pred_g[u][v]['weight']
+                    weight = pred_g[u][v]['gene_weight']
                     encoding = encoding * weight
                     
                 if apply_AD_weight:
@@ -92,7 +93,7 @@ def get_edge_attributes(truth_g , pred_g , num_dist = None , apply_gene_similari
                     encoding = np.array(group_to_onehot[group_u])
                 
                 if apply_gene_similarity:
-                    weight = truth_g[u][v]['weight']
+                    weight = truth_g[u][v]['gene_weight']
                     encoding = encoding * weight
                 
                 if apply_AD_weight:
@@ -159,7 +160,7 @@ def get_edge_attributes_group(pred_g , truth_g , bandwidth = 0.8 , num_dist = 20
                 encoding = np.array(group_to_onehot[group_u])
             
             if apply_gene_similarity:
-                weight = truth_g[u][v]['weight']
+                weight = truth_g[u][v]['gene_weight']
                 encoding = encoding * weight
             
             if apply_AD_weight:
@@ -183,7 +184,7 @@ def get_edge_attributes_group(pred_g , truth_g , bandwidth = 0.8 , num_dist = 20
                 encoding = np.array(group_to_onehot[group_u])
             
             if apply_gene_similarity:
-                weight = truth_g[u][v]['weight']
+                weight = truth_g[u][v]['gene_weight']
                 encoding = encoding * weight
             
             if apply_AD_weight:
