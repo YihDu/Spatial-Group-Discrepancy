@@ -53,13 +53,13 @@ class GraphBuilder:
     
     def calculate_weight_toyexample(self , label_u , label_v):
         if label_u == label_v:
-            return 0.9
-        elif (label_u == "A" and label_v == "B1") or (label_u == "B1" and label_v == "A"): # A B 相似
-            return 0.3
-        elif (label_u == "B1" and label_v == "B2") or (label_u == "B2" and label_v == "B1"): # B1 B2
-            return 0.5
-        elif (label_u == "A" and label_v == "B2") or (label_u == "B2" and label_v == "A"):
+            return 0.9 # similarity
+        elif (label_u == "A" and label_v == "A_1") or (label_u == "A_1" and label_v == "A"): # A A1 没那么相似 similarity
             return 0.7
+        elif (label_u == "A" and label_v == "B") or (label_u == "B" and label_v == "A"): # B1 B2
+            return 0.5 # distance
+        elif (label_u == "A_1" and label_v == "B") or (label_u == "B" and label_v == "A_1"):
+            return 0.5 # distance 暂时设计成一致
         else:
             return 1.0
             
