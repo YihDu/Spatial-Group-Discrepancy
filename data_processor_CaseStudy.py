@@ -68,8 +68,8 @@ class GraphBuilder:
     def calculate_gene_weight(self):
         
         weight_map = {
-            ("A" , "A_1") : 0.85, # 同属于A Similarity
-            ('A_1', 'A'): 0.85,
+            ("A" , "A_1") : 0.9, # 同属于A Similarity
+            ('A_1', 'A'): 0.9,
             ("A" , "A_2") : 0.6,
             ('A_2', 'A'): 0.6,
             ('A', 'B'): 0.5,
@@ -94,7 +94,7 @@ class GraphBuilder:
             group_u = self.truth_G.nodes[u]['group']
             group_v = self.truth_G.nodes[v]['group']
             
-            gene_weight = weight_map.get((group_u , group_v) , 0.9) # 同一种用Similarity 0.9
+            gene_weight = weight_map.get((group_u , group_v) , 0.95) # 同一种用Similarity 0.9
             self.truth_G[u][v]['gene_weight'] = gene_weight
     
     def copy_weights(self):

@@ -1,7 +1,7 @@
 import numpy as np
 import ot
 
-def gaussian_emd(x, y, sigma=1e-3):
+def gaussian_emd(x, y, sigma=5e-4):
     X = np.stack(x)
     Y = np.stack(y)
     

@@ -40,7 +40,7 @@ def align_encoding(n , encoding):
     encoding = vectors[np.argmin(distances)]
     return encoding
 
-
+'''
 def get_edge_attributes(truth_g , pred_g , num_dist = None , apply_gene_similarity = False , apply_AD_weight = False):
     unique_groups = set()
     for _, node_data in truth_g.nodes(data=True):
@@ -116,6 +116,101 @@ def get_edge_attributes(truth_g , pred_g , num_dist = None , apply_gene_similari
         sample_truth = KDE(dist_truth,num_samples)
 
         
+              
+        # add alignment step
+        # for row in sample_pred:
+            # encoding = align_encoding(n = len(unique_groups) , encoding = row)
+        
+        # for row in sample_truth:
+            # encoding = align_encoding(n = len(unique_groups) , encoding = row)
+        
+        distributions_pred.append(sample_pred)
+        distributions_truth.append(sample_truth)
+
+    
+    # Bootstrap sampling
+    # distributions_pred = bootstrap_sample(dist_pred, num_dist)
+    # distributions_truth = bootstrap_sample(dist_truth, num_dist)
+    
+    return distributions_pred , distributions_truth
+'''
+
+
+def get_edge_attributes(pred_g , truth_g , bandwidth = 0.8 , num_dist = 20 ,apply_gene_similarity = False , apply_AD_weight = False):
+
+    def simplify_label(group):
+        if 'A' in group:
+            return 'A'
+        else:
+            return group
+    
+    unique_groups = set(['A', 'B'])
+    group_to_onehot = {'A': (1, 0), 'B': (0, 1)}
+    pred_edges = list(pred_g.edges())
+    truth_edges = list(truth_g.edges())
+    
+    num_samples = len(pred_edges)
+    
+    dist_pred = []
+    dist_truth = []
+    
+    for edge in pred_edges:
+        u, v = edge
+        group_u = simplify_label(pred_g.nodes[u]['group'])
+        group_v = simplify_label(pred_g.nodes[v]['group'])
+
+        encoding = np.zeros(len(unique_groups))
+        
+        if group_u == group_v == 'A':  # Both nodes contain "A"
+            encoding = np.array(group_to_onehot['A'])
+        elif group_u == group_v == 'B':  # Both nodes are "B"
+            encoding = np.array(group_to_onehot['B'])
+        
+        if apply_gene_similarity:
+            weight = pred_g[u][v]['gene_weight']
+            encoding = encoding * weight
+                    
+        if apply_AD_weight:
+            ad_weight = pred_g[u][v]['ad_weight']
+            encoding = encoding * ad_weight
+
+        dist_pred.append(encoding)
+    
+    for edge in truth_edges:
+        u, v = edge
+        group_u = simplify_label(truth_g.nodes[u]['group'])
+        group_v = simplify_label(truth_g.nodes[v]['group'])
+
+        encoding = np.zeros(len(unique_groups))  # Initialize encoding to (0,0)
+        
+        if group_u == group_v == 'A':
+            encoding = np.array(group_to_onehot['A'])
+        elif group_u == group_v == 'B':
+            encoding = np.array(group_to_onehot['B'])
+        
+        if apply_gene_similarity:
+            weight = pred_g[u][v]['gene_weight']
+            encoding = encoding * weight
+                    
+        if apply_AD_weight:
+            ad_weight = pred_g[u][v]['ad_weight']
+            encoding = encoding * ad_weight
+            
+        dist_truth.append(encoding)   
+
+    dist_pred = np.array(dist_pred)
+    dist_truth = np.array(dist_truth)
+    
+    distributions_pred = []
+    distributions_truth = []
+    
+    # KDE and sampling
+
+    for i in range(num_dist):
+        sample_pred = KDE(dist_pred,num_samples)
+        sample_truth = KDE(dist_truth,num_samples)
+
+        
         '''      
         # add alignment step
         for row in sample_pred:
@@ -133,8 +228,10 @@ def get_edge_attributes(truth_g , pred_g , num_dist = None , apply_gene_similari
     # distributions_truth = bootstrap_sample(dist_truth, num_dist)
     
     return distributions_pred , distributions_truth
+        
 
 def get_edge_attributes_group(pred_g , truth_g , bandwidth = 0.8 , num_dist = 20 ,apply_gene_similarity = False , apply_AD_weight = False):
+    
     unique_groups = set()
     for _, node_data in truth_g.nodes(data=True):
         unique_groups.add(node_data['group'])
@@ -216,3 +313,4 @@ def get_edge_attributes_group(pred_g , truth_g , bandwidth = 0.8 , num_dist = 20
                 KDE_dist_truth[group].append(KDE_sample)
     
     return KDE_dist_pred, KDE_dist_truth
+    
