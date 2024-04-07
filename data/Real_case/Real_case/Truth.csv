@@ -1,0 +1,307 @@
+x,y,label,matching_label
+9,10,connective tissue,9x10
+10,10,connective tissue,10x10
+7,10,connective tissue,7x10
+8,10,connective tissue,8x10
+4,10,undetermined,4x10
+11,11,connective tissue,11x11
+9,11,connective tissue,9x11
+20,11,undetermined,20x11
+21,11,undetermined,21x11
+10,11,connective tissue,10x11
+12,11,immune infiltrate,12x11
+19,11,undetermined,19x11
+16,11,connective tissue,16x11
+18,11,connective tissue,18x11
+4,11,undetermined,4x11
+15,11,connective tissue,15x11
+13,11,immune infiltrate,13x11
+14,11,connective tissue,14x11
+8,11,connective tissue,8x11
+17,11,connective tissue,17x11
+7,11,connective tissue,7x11
+6,11,connective tissue,6x11
+5,11,connective tissue,5x11
+11,12,connective tissue,11x12
+22,12,undetermined,22x12
+9,12,connective tissue,9x12
+20,12,undetermined,20x12
+18,12,connective tissue,18x12
+21,12,undetermined,21x12
+10,12,connective tissue,10x12
+15,12,immune infiltrate,15x12
+6,12,undetermined,6x12
+7,12,connective tissue,7x12
+12,12,immune infiltrate,12x12
+4,12,undetermined,4x12
+8,12,connective tissue,8x12
+14,12,undetermined,14x12
+19,12,undetermined,19x12
+13,12,connective tissue,13x12
+5,12,invasive cancer,5x12
+17,12,connective tissue,17x12
+16,12,immune infiltrate,16x12
+22,13,undetermined,22x13
+20,13,undetermined,20x13
+9,13,invasive cancer,9x13
+11,13,connective tissue,11x13
+18,13,undetermined,18x13
+21,13,undetermined,21x13
+8,13,invasive cancer,8x13
+7,13,invasive cancer,7x13
+10,13,undetermined,10x13
+15,13,immune infiltrate,15x13
+19,13,undetermined,19x13
+12,13,connective tissue,12x13
+5,13,invasive cancer,5x13
+13,13,connective tissue,13x13
+4,13,invasive cancer,4x13
+14,13,immune infiltrate,14x13
+16,13,undetermined,16x13
+6,13,invasive cancer,6x13
+17,13,connective tissue,17x13
+11,14,invasive cancer,11x14
+22,14,undetermined,22x14
+20,14,undetermined,20x14
+18,14,undetermined,18x14
+21,14,undetermined,21x14
+5,14,invasive cancer,5x14
+9,14,invasive cancer,9x14
+15,14,undetermined,15x14
+6,14,invasive cancer,6x14
+14,14,connective tissue,14x14
+4,14,invasive cancer,4x14
+13,14,connective tissue,13x14
+10,14,invasive cancer,10x14
+12,14,undetermined,12x14
+19,14,undetermined,19x14
+8,14,invasive cancer,8x14
+7,14,invasive cancer,7x14
+16,14,connective tissue,16x14
+20,15,undetermined,20x15
+9,15,invasive cancer,9x15
+11,15,invasive cancer,11x15
+21,15,undetermined,21x15
+15,15,connective tissue,15x15
+10,15,invasive cancer,10x15
+13,15,connective tissue,13x15
+8,15,invasive cancer,8x15
+12,15,invasive cancer,12x15
+18,15,undetermined,18x15
+5,15,invasive cancer,5x15
+7,15,invasive cancer,7x15
+14,15,connective tissue,14x15
+16,15,connective tissue,16x15
+19,15,undetermined,19x15
+17,15,connective tissue,17x15
+6,15,invasive cancer,6x15
+9,16,invasive cancer,9x16
+20,16,undetermined,20x16
+11,16,invasive cancer,11x16
+21,16,undetermined,21x16
+8,16,invasive cancer,8x16
+5,16,invasive cancer,5x16
+12,16,invasive cancer,12x16
+10,16,invasive cancer,10x16
+7,16,invasive cancer,7x16
+16,16,connective tissue,16x16
+18,16,undetermined,18x16
+13,16,connective tissue,13x16
+19,16,undetermined,19x16
+14,16,connective tissue,14x16
+15,16,connective tissue,15x16
+17,16,connective tissue,17x16
+6,16,invasive cancer,6x16
+9,17,invasive cancer,9x17
+10,17,invasive cancer,10x17
+12,17,invasive cancer,12x17
+13,17,connective tissue,13x17
+15,17,connective tissue,15x17
+20,17,undetermined,20x17
+8,17,invasive cancer,8x17
+14,17,connective tissue,14x17
+21,17,undetermined,21x17
+19,17,undetermined,19x17
+7,17,invasive cancer,7x17
+18,17,undetermined,18x17
+6,17,invasive cancer,6x17
+17,17,connective tissue,17x17
+16,17,connective tissue,16x17
+5,17,invasive cancer,5x17
+11,18,invasive cancer,11x18
+9,18,invasive cancer,9x18
+20,18,undetermined,20x18
+18,18,connective tissue,18x18
+21,18,undetermined,21x18
+10,18,invasive cancer,10x18
+14,18,connective tissue,14x18
+19,18,undetermined,19x18
+8,18,invasive cancer,8x18
+16,18,connective tissue,16x18
+7,18,invasive cancer,7x18
+12,18,invasive cancer,12x18
+15,18,connective tissue,15x18
+5,18,invasive cancer,5x18
+6,18,invasive cancer,6x18
+13,18,connective tissue,13x18
+17,18,connective tissue,17x18
+20,19,connective tissue,20x19
+11,19,invasive cancer,11x19
+9,19,invasive cancer,9x19
+5,19,invasive cancer,5x19
+17,19,connective tissue,17x19
+18,19,connective tissue,18x19
+12,19,invasive cancer,12x19
+13,19,connective tissue,13x19
+15,19,connective tissue,15x19
+16,19,connective tissue,16x19
+19,19,connective tissue,19x19
+14,19,connective tissue,14x19
+8,19,invasive cancer,8x19
+10,19,invasive cancer,10x19
+7,19,invasive cancer,7x19
+6,19,invasive cancer,6x19
+11,20,invasive cancer,11x20
+7,20,invasive cancer,7x20
+20,20,connective tissue,20x20
+9,20,invasive cancer,9x20
+15,20,connective tissue,15x20
+12,20,invasive cancer,12x20
+13,20,connective tissue,13x20
+19,20,connective tissue,19x20
+14,20,connective tissue,14x20
+5,20,invasive cancer,5x20
+8,20,invasive cancer,8x20
+10,20,invasive cancer,10x20
+6,20,invasive cancer,6x20
+16,20,connective tissue,16x20
+17,20,connective tissue,17x20
+10,21,invasive cancer,10x21
+11,21,invasive cancer,11x21
+9,21,invasive cancer,9x21
+16,21,connective tissue,16x21
+20,21,connective tissue,20x21
+19,21,connective tissue,19x21
+8,21,invasive cancer,8x21
+12,21,undetermined,12x21
+14,21,connective tissue,14x21
+18,21,connective tissue,18x21
+13,21,connective tissue,13x21
+6,21,invasive cancer,6x21
+17,21,connective tissue,17x21
+5,21,invasive cancer,5x21
+7,21,invasive cancer,7x21
+21,21,invasive cancer,21x21
+15,21,connective tissue,15x21
+6,22,invasive cancer,6x22
+13,22,connective tissue,13x22
+11,22,invasive cancer,11x22
+15,22,connective tissue,15x22
+14,22,connective tissue,14x22
+20,22,invasive cancer,20x22
+7,22,invasive cancer,7x22
+9,22,invasive cancer,9x22
+12,22,connective tissue,12x22
+8,22,invasive cancer,8x22
+21,22,invasive cancer,21x22
+19,22,undetermined,19x22
+10,22,invasive cancer,10x22
+16,22,connective tissue,16x22
+17,22,connective tissue,17x22
+18,22,connective tissue,18x22
+5,22,invasive cancer,5x22
+11,23,connective tissue,11x23
+20,23,invasive cancer,20x23
+19,23,invasive cancer,19x23
+21,23,invasive cancer,21x23
+9,23,invasive cancer,9x23
+8,23,invasive cancer,8x23
+18,23,connective tissue,18x23
+17,23,connective tissue,17x23
+16,23,invasive cancer,16x23
+15,23,invasive cancer,15x23
+12,23,connective tissue,12x23
+14,23,connective tissue,14x23
+10,23,invasive cancer,10x23
+5,23,invasive cancer,5x23
+13,23,connective tissue,13x23
+7,23,invasive cancer,7x23
+6,23,invasive cancer,6x23
+11,24,connective tissue,11x24
+9,24,undetermined,9x24
+20,24,invasive cancer,20x24
+8,24,invasive cancer,8x24
+7,24,invasive cancer,7x24
+10,24,connective tissue,10x24
+6,24,invasive cancer,6x24
+12,24,connective tissue,12x24
+15,24,invasive cancer,15x24
+16,24,invasive cancer,16x24
+18,24,invasive cancer,18x24
+13,24,connective tissue,13x24
+5,24,invasive cancer,5x24
+21,24,invasive cancer,21x24
+14,24,invasive cancer,14x24
+19,24,invasive cancer,19x24
+17,24,invasive cancer,17x24
+11,25,connective tissue,11x25
+20,25,invasive cancer,20x25
+9,25,connective tissue,9x25
+7,25,undetermined,7x25
+6,25,invasive cancer,6x25
+16,25,invasive cancer,16x25
+10,25,connective tissue,10x25
+14,25,invasive cancer,14x25
+15,25,invasive cancer,15x25
+13,25,connective tissue,13x25
+17,25,invasive cancer,17x25
+5,25,invasive cancer,5x25
+21,25,invasive cancer,21x25
+12,25,connective tissue,12x25
+18,25,invasive cancer,18x25
+8,25,connective tissue,8x25
+19,25,invasive cancer,19x25
+20,26,invasive cancer,20x26
+9,26,connective tissue,9x26
+18,26,invasive cancer,18x26
+11,26,undetermined,11x26
+19,26,invasive cancer,19x26
+17,26,invasive cancer,17x26
+21,26,invasive cancer,21x26
+15,26,invasive cancer,15x26
+16,26,invasive cancer,16x26
+10,26,undetermined,10x26
+13,26,invasive cancer,13x26
+7,26,connective tissue,7x26
+6,26,connective tissue,6x26
+8,26,connective tissue,8x26
+5,26,connective tissue,5x26
+14,26,invasive cancer,14x26
+12,26,connective tissue,12x26
+21,27,invasive cancer,21x27
+20,27,invasive cancer,20x27
+9,27,undetermined,9x27
+7,27,connective tissue,7x27
+11,27,undetermined,11x27
+17,27,invasive cancer,17x27
+15,27,invasive cancer,15x27
+16,27,invasive cancer,16x27
+18,27,invasive cancer,18x27
+19,27,invasive cancer,19x27
+13,27,invasive cancer,13x27
+5,27,connective tissue,5x27
+8,27,connective tissue,8x27
+12,27,connective tissue,12x27
+6,27,connective tissue,6x27
+14,27,invasive cancer,14x27
+10,27,undetermined,10x27
+11,28,undetermined,11x28
+17,28,invasive cancer,17x28
+16,28,invasive cancer,16x28
+13,28,invasive cancer,13x28
+14,28,invasive cancer,14x28
+15,28,invasive cancer,15x28
+19,28,invasive cancer,19x28
+21,28,invasive cancer,21x28
+20,28,invasive cancer,20x28
+18,28,invasive cancer,18x28
