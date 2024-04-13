@@ -7,26 +7,6 @@ import time
 from GK_emd import gaussian_emd
 
 
-'''
-def main(coordinate_file_truth , 
-         coordinate_file_pred , 
-         gene_expr_file = None , 
-         apply_gene_similarity = False,
-         apply_AD_weight = False):
-    
-    graph_builder1 = GraphBuilder(coordinate_file_truth , gene_expr_file)
-    graph_builder2 = GraphBuilder(coordinate_file_pred , gene_expr_file)
-    
-    graph_truth = graph_builder1.build_graph()
-    graph_pred = graph_builder2.build_graph()
-    
-    samples_truth , samples_pred = get_edge_attributes(graph_truth , graph_pred , bandwidth = 0.5 ,num_dist = 20 , apply_gene_similarity = apply_gene_similarity)
-    
-    SGD_score = compute_mmd(samples_truth , samples_pred ,kernel = gaussian_emd,is_hist = True)
-    
-    return SGD_score
-'''
-
 def main(coordinate_file_truth , 
          coordinate_file_pred , 
          gene_expr_file = None , 

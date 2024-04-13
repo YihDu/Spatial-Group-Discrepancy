@@ -32,13 +32,7 @@ def KDE(dist , num_samples , bandwidths = np.linspace(0.1 , 1.0 , 30) , random_s
     samples = kde.sample(num_samples)
     return samples
 
-def align_encoding(n , encoding):
-    vectors = np.vstack([np.eye(n) , np.zeros(n)])
-    distances = np.linalg.norm(vectors - encoding , axis = 1)
-    
-    # update enconding
-    encoding = vectors[np.argmin(distances)]
-    return encoding
+
 
 '''
 def get_edge_attributes(truth_g , pred_g , num_dist = None , apply_gene_similarity = False , apply_AD_weight = False):
